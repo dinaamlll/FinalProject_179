@@ -1,20 +1,97 @@
-// Finalproject.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+class bidangDatar {
+private:
+	int x, y;
+public:
+	bidangDatar() {
+		x = 0;
+		y = 0;
+	}
+	virtual void input() {}
+	virtual float Luas(int a) { return 0; }
+	virtual float Keliling(int a) { return 0; }
+	virtual void cekUkuran() { return; }
+	void setX(int a) {
+		this->x = a;
+	}
+	int getX() {
+		return x;
+	}
+	void cetakUlang();
+	float lingkaran = lingkaran;
+	if (Keliling > 40) {
+		cout << "Ukurannya besar";
+	}
+	else {
+	}
+};
 
-int main()
-{
-    std::cout << "Hello World!\n";
-}
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+class Lingkaran :public bidangDatar {
+private:
+	int x;
+	int y;
+public:
+	void input() {
+		int x;
+		int y;
+		cout << "lingkaran dibuat\n " << endl;
+		cout << " Masukkan jari-jari lingkaran: ";
+		cin >> x;
+		cout << " Ukuran lingkaran adalah sedang";
+		setX(x);
+	}
+	float Luas() {
+		int a = getX();
+		return 3.14 * a * a;
+	}
+	float Keliling() {
+		int a = getX();
+		return 3.14 * 2 * a;
+	}
+};
+
+class Persegipanjang :public bidangDatar {
+public:
+	void input() {
+		int p;
+		int l;
+		cout << "Persegipanjang dibuat\n " << endl;
+		cout << "Masukkan panjang: ";
+		cin >> p;
+		cout << "Masukkan lebar: ";
+		cin >> l;
+		cout << " Ukuran persegipanjang adalah sedang";
+		setX(p);
+	}
+	float Keliling() {
+		int p = getX();
+		int l = getX();
+		return 2*(p+l);
+		setX(p);
+		setX(l);
+	}
+	float Luas() {
+		int p = getX();
+		int l = getX();
+		return p*l;
+		setX(p);
+		setX(l);
+	}
+};
+
+int main() {
+
+	Lingkaran lingkaran;
+	lingkaran.input();
+	cout << "Luas Lingkaran: " << lingkaran.Luas() << endl;
+	cout << "Keliling Lingkaran: " << lingkaran.Keliling() << endl;
+
+	Persegipanjang persegipanjang;
+	persegipanjang.input();
+	cout << "Luas persegipanjang: " << persegipanjang.Luas() << endl;
+	cout << "Keliling persegipanjang: " << persegipanjang.Keliling() << endl;
+	return 0;
+};
